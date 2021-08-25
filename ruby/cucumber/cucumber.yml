@@ -1,4 +1,4 @@
-default: -p poltergeist
+default: -p zalenium
 html: --format --out reports/test-report.html
 bvt: --tags @test
 browserstack : DRIVER=browserstack
@@ -13,3 +13,4 @@ chrome: DRIVER=chrome
 parallel_html: --format html --out reports/process<%= ENV['TEST_ENV_NUMBER'] %>.html
 pretty: -f pretty
 parallel: --format pretty -p poltergeist --profile parallel_html
+zalenium : DRIVER=zalenium
