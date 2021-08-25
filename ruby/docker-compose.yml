@@ -1,0 +1,10 @@
+version: '3'
+services:
+  crawler:
+    build: .
+    tty: true    
+    # command: bash
+    # image: ruby:2.5
+    volumes:
+      - .:/opt/src
+
