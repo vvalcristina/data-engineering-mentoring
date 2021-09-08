@@ -13,6 +13,8 @@ require 'dotenv'
 
 Dotenv.load('.env')
 
+ENV['ZALENIUM_URL']
+
 Capybara.configure do |config|
   config.run_server = false
   config.default_driver = (ENV['DRIVER'] || 'selenium').to_sym

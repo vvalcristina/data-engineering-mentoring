@@ -3,7 +3,7 @@ class HomePage
     attr_accessor :title, :title_text
   end
 
-  self.title_text = 'Your Site '
+  self.title_text = 'Hemocentro'
   self.title = 'your_css_selector'
 
   def initialize(_session)
@@ -11,7 +11,7 @@ class HomePage
   end
 
   def visit_home_page
-    @session.visit('your_url')
+    @session.visit('https://www.hemocentro.unicamp.br/')
   end
 end
 
