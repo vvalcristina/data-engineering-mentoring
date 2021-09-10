@@ -10,7 +10,6 @@ When(/^I am looking for blood supply information and save the information in a \
     hemocentro = []
     estoque = find(:xpath,"//*[contains(@class,'linha-estoque-de-sangue')]").text
     hemocentro << [estoque]
-    puts hemocentro
     path = '/opt/src/cucumber/hemocentro.csv'
     File.write(path, hemocentro)    
 end
