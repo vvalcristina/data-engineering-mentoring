@@ -8,8 +8,15 @@ end
 
 When(/^I am looking for blood supply information and save the information in a \.csv$/) do
     hemocentro = []
-    estoque = find(:xpath,"//*[contains(@class,'linha-estoque-de-sangue')]").text
-    hemocentro << [estoque]
+    ultimaAtualizacao = find(:xpath,"//p[@class='ultima-atualizao']").text
+    sangueOpositivo=find(:xpath,"//div[@class='bolsa' and contains(.,'O+')]/..").text
+    sangueApositivo=find(:xpath,"//div[@class='bolsa' and contains(.,'A+')]/..").text
+    sangueABpositivo=find(:xpath,"//div[@class='bolsa' and contains(.,'AB+')]/..").text
+    sangueOnegativo=find(:xpath,"//div[@class='bolsa' and contains(.,'O-')]/..").text
+    sangueAnegativo=find(:xpath,"//div[@class='bolsa' and contains(.,'A-')]/..").text
+    sangueABnegativo=find(:xpath,"//div[@class='bolsa' and contains(.,'AB-')]/..").text
+    hemocentro << [ultimaAtualizacao, sangueOpositivo, sangueApositivo, sangueABpositivo, sangueOnegativo,sangueAnegativo,sangueABnegativo ]
+    puts hemocentro
     path = '/opt/src/cucumber/hemocentro.csv'
     File.write(path, hemocentro)    
 end
@@ -17,4 +24,3 @@ end
 Then(/^verify file$/) do
     expect(page).to have_xpath("//*[contains(@class,'linha-estoque-de-sangue')]")
 end
-  
